@@ -1,6 +1,6 @@
 package components;
 
-//import gui.TabController;
+import gui.TabController;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
@@ -93,7 +93,7 @@ public class ButtonTabComponent extends JPanel
 			int i = pane.indexOfTabComponent(ButtonTabComponent.this);
 			if (i != -1)
 			{
-//				TabController.tabMap.remove(pane.getTitleAt(i));
+				TabController.tabMap.remove(pane.getTitleAt(i));
 				pane.remove(i);
 			}
 		}
