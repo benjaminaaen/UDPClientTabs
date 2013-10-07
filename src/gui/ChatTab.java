@@ -58,5 +58,12 @@ public class ChatTab extends JPanel
 	public void addMessage(String message)
 	{
 		chatWindow.add(message);
+		gotoBottom();
+	}
+	
+	public void gotoBottom()
+	{
+		chatWindow.select(chatWindow.getItemCount()-1);
+		chatWindow.deselect(chatWindow.getItemCount()-1);
 	}
 }

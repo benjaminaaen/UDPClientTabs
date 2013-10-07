@@ -23,8 +23,7 @@ class PopUpMenu extends JPopupMenu
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				ClientController.getInstance().getTabController()
-						.newTab(false, item);
+				ClientController.getInstance().getTabController().newTab(false, item, true);
 			}
 		});
 		add(anItem);

@@ -58,7 +58,6 @@ public class DatagramListener extends Thread
 			}
 			catch (IOException e)
 			{
-				System.out.println("Unable to receive Datagram.");
 				ds.close();
 				break;
 			}

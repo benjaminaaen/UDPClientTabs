@@ -73,8 +73,6 @@ public class MulticastListener extends Thread
 			}
 			catch (IOException e)
 			{
-				System.out.println("Unable to receive Multicast");
-				e.printStackTrace();
 				break;
 			}
 		}

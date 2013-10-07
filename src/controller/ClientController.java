@@ -72,8 +72,8 @@ public class ClientController
 			tabController.getChatMap().get(from).addMessage(message);
 		} catch (NullPointerException e)
 		{
-			tabController.newTab(false, from);
-			// tabController.getTabbedPane().setBackgroundAt(tabController.getTabbedPane().getTabCount()-1, Color.ORANGE);
+			tabController.newTab(false, from, false);
+//			tabController.getTabbedPane().setBackgroundAt(tabController.getTabbedPane().getTabCount()-1, Color.ORANGE);
 			tabController.getChatMap().get(from).addMessage(message);
 		}
 	}
@@ -112,6 +112,8 @@ public class ClientController
 		} catch (Exception e)
 		{
 			System.out.println("Error trying to close connection");
+			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -123,7 +125,7 @@ public class ClientController
 		this.myName = name;
 		try
 		{
-			tabController.newTab(true, "Public");
+			tabController.newTab(true, "Public", true);
 			UDPsocket = new DatagramSocket();
 			addPublicMessage("Connecting to server ...");
 			byteArray = ("JOIN " + name).getBytes("UTF-8");

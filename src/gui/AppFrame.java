@@ -35,7 +35,6 @@ public class AppFrame extends JFrame
 	public JLabel lblUsersOnline;
 	public List connectionList;
 	private ClientController cc;
-	private JButton btnTest;
 	private JButton btnDisconnect;
 	private JButton btnConnect;
 
@@ -47,18 +46,6 @@ public class AppFrame extends JFrame
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		JButton btnPrivate = new JButton("Private");
-		btnPrivate.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				cc.getTabController().newTab(false,
-						connectionList.getSelectedItem());
-			}
-		});
-		btnPrivate.setBounds(416, 43, 110, 23);
-		contentPane.add(btnPrivate);
 
 		connectionList = new List();
 		connectionList.addMouseListener(new MouseAdapter()
@@ -72,9 +59,10 @@ public class AppFrame extends JFrame
 						Robot robot = new java.awt.Robot();
 						robot.mousePress(InputEvent.BUTTON1_MASK);
 						robot.mouseRelease(InputEvent.BUTTON1_MASK);
-					} catch (AWTException E)
+					} 
+					catch (AWTException E)
 					{
-						System.out.println(E);
+						System.out.println(E.toString());
 					}
 				}
 				doPop(e);
@@ -145,6 +133,7 @@ public class AppFrame extends JFrame
 		contentPane.add(btnConnect);
 
 		tabPanel = new TabController();
+		tabPanel.getTabbedPane().setBorder(null);
 		tabPanel.getTabbedPane().setBounds(0, 0, 400, 303);
 		tabPanel.setBounds(10, 50, 400, 303);
 		contentPane.add(tabPanel);
@@ -152,19 +141,8 @@ public class AppFrame extends JFrame
 
 		lblUsersOnline = new JLabel("Offline");
 		lblUsersOnline.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUsersOnline.setBounds(416, 358, 110, 14);
+		lblUsersOnline.setBounds(416, 50, 110, 14);
 		contentPane.add(lblUsersOnline);
-
-		btnTest = new JButton("Test");
-		btnTest.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-
-			}
-		});
-		btnTest.setBounds(20, 374, 89, 23);
-		contentPane.add(btnTest);
 
 		btnDisconnect = new JButton("Disconnect");
 		btnDisconnect.addActionListener(new ActionListener()
